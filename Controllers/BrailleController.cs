@@ -7,6 +7,8 @@ namespace BrailleWinAPI.Controllers
     [Route("[controller]/api")]
     public class DotPrintController : ControllerBase
     {
+
+        //To print rectangle
         [HttpGet("rectangle/{width}/{height}")]
         public IActionResult Rectangle(int width, int height)
         {
@@ -21,7 +23,7 @@ namespace BrailleWinAPI.Controllers
             }
             return Ok(dotPrint);
         }
-
+        // to print circle
         [HttpGet("circle/{radius}/{resolution}")]
         public IActionResult GetCircle(int radius, int resolution)
         {
@@ -45,13 +47,19 @@ namespace BrailleWinAPI.Controllers
             }
             return Ok(dotPrint);
         }
+
+        //To print  right align triangle
         [HttpGet("righttriangle/{width}")]
         public IActionResult GetRTriangle(int width)
         {
             string dotPrint = "";
             for (int i = 0; i < width; i++)
             {
-                for (int j = 0; j <= i; j++)
+                for (int j = 0; j < width - i - 1; j++)
+                {
+                    dotPrint += " ";
+                }
+                for (int j = 0;j <= i;j++)
                 {
                     dotPrint += ".";
                 }
@@ -60,6 +68,8 @@ namespace BrailleWinAPI.Controllers
             return Ok(dotPrint);
         }
 
+
+        //To print Left align triangle
         [HttpGet("lefttriangle/{width}")]
         public IActionResult GetLTriangle(int width)
         {
@@ -75,6 +85,103 @@ namespace BrailleWinAPI.Controllers
             return Ok(dotPrint);
         }
 
+        //To print piramide
+        [HttpGet("piramide/{rows}")]
+        public IActionResult GetPiramide(int rows)
+        {
+            string dotPrint = "";
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < rows - i - 1; j++)
+                {
+                    dotPrint += " ";
+                }
+                for (int j = 0; j <= i * 2; j++)
+                {
+                    dotPrint += ".";
+                }
+                dotPrint += "\n";
+            }
+            return Ok(dotPrint);
+        }
+
+        //To print diamond
+        [HttpGet("diamond/{rows}")]
+        public IActionResult GetDiamond(int rows)
+        {
+            string dotPrint = "";
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < rows - i - 1; j++)
+                {
+                    dotPrint += " ";
+                }
+                for (int j = 0; j <= i * 2; j++)
+                {
+                    dotPrint += ".";
+                }
+                dotPrint += "\n";
+            }
+            for (int i = rows-1; i >= 1; --i)
+            {
+                for (int j = 1; j <= rows - i; ++j)
+                {
+                    dotPrint += " ";
+                }
+                for (int j = 1; j <= 2 * i - 1; ++j)
+                {
+                    dotPrint += ".";
+                }
+                dotPrint += "\n";
+            }
+            return Ok(dotPrint);
+        }
+
+        //To get braille
+        [HttpGet("braille/{text}")]
+        public IActionResult GetBraille(string text)
+        {
+            string braille = "";
+            foreach (char c in text)
+            {
+                if (c >= 'a' && c <= 'z')
+                {
+                    braille += braille_a_to_z[c - 'a'];
+                }
+                else if (c >= 'A' && c <= 'Z')
+                {
+                    braille += braille_A_to_Z[c - 'A'];
+                }
+                else if (c >= '0' && c <= '9')
+                {
+                    braille += braille_0_to_9[c - '0'];
+                }
+                else
+                {
+                    braille += " ";
+                }
+            }
+            return Ok(braille);
+        }
+
+        private static string[] braille_a_to_z = new string[]
+        {
+            "⠁", "⠃", "⠉", "⠙", "⠑", "⠋", "⠛", "⠓", "⠊", "⠚",
+            "⠅", "⠇", "⠍", "⠝", "⠕", "⠏", "⠟", "⠗", "⠎", "⠞",
+            "⠥", "⠧", "⠺", "⠭", "⠽", "⠵"
+        };
+
+        private static string[] braille_A_to_Z = new string[]
+        {
+            "⠠⠁", "⠠⠃", "⠠⠉", "⠠⠙", "⠠⠑", "⠠⠋", "⠠⠛", "⠠⠓", "⠠⠊", "⠠⠚",
+            "⠠⠅", "⠠⠇", "⠠⠍", "⠠⠝", "⠠⠕", "⠠⠏", "⠠⠟", "⠠⠗", "⠠⠎", "⠠⠞",
+            "⠠⠥", "⠠⠧", "⠠⠺", "⠠⠭", "⠠⠽", "⠠⠵"
+        };
+
+        private static string[] braille_0_to_9 = new string[]
+        {
+            "⠚", "⠁⠃", "⠉⠙", "⠑⠋", "⠍⠝", "⠕⠏", "⠋⠟", "⠛⠗", "⠓⠎", "⠊⠞"
+        };
     }
 
 
