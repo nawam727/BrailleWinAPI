@@ -5,27 +5,27 @@ namespace BrailleWinAPI.Controllers
 {
     [ApiController]
     [Route("[controller]/api")]
-    public class DotPatterController : ControllerBase
+    public class DotPrintController : ControllerBase
     {
         [HttpGet("rectangle/{width}/{height}")]
         public IActionResult Rectangle(int width, int height)
         {
-            string dotPattern = "";
+            string dotPrint = "";
             for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
                 {
-                    dotPattern += ". ";
+                    dotPrint += ". ";
                 }
-                dotPattern += "\n";
+                dotPrint += "\n";
             }
-            return Ok(dotPattern);
+            return Ok(dotPrint);
         }
 
         [HttpGet("circle/{radius}/{resolution}")]
         public IActionResult GetCircle(int radius, int resolution)
         {
-            string dotPattern = "";
+            string dotPrint = "";
             double step = 2 * Math.PI / resolution;
             for (int y = -radius; y <= radius; y++)
             {
@@ -34,18 +34,48 @@ namespace BrailleWinAPI.Controllers
                     double distance = Math.Sqrt(x * x + y * y);
                     if (Math.Abs(distance - radius) < step / 2)
                     {
-                        dotPattern += ".";
+                        dotPrint += ".";
                     }
                     else
                     {
-                        dotPattern += " ";
+                        dotPrint += " ";
                     }
                 }
-                dotPattern += "\n";
+                dotPrint += "\n";
             }
-            return Ok(dotPattern);
+            return Ok(dotPrint);
         }
+        [HttpGet("righttriangle/{width}")]
+        public IActionResult GetRTriangle(int width)
+        {
+            string dotPrint = "";
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j <= i; j++)
+                {
+                    dotPrint += ".";
+                }
+                dotPrint += "\n";
+            }
+            return Ok(dotPrint);
+        }
+
+        [HttpGet("lefttriangle/{width}")]
+        public IActionResult GetLTriangle(int width)
+        {
+            string dotPrint = "";
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j <= i; j++)
+                {
+                    dotPrint += ".";
+                }
+                dotPrint += "\n";
+            }
+            return Ok(dotPrint);
+        }
+
     }
 
-    
+
 }
