@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrailleWinAPI", "BrailleWinAPI.csproj", "{CF8D1C29-F0DB-41D3-AA4A-215A224469A1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrailleApp", "..\BrailleWindowsApp\BrailleApp\BrailleApp.csproj", "{80624AF7-219E-4872-9DFF-E859F4AC80ED}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Braille-Printing-Windows-App", "..\Braille-Printing-Windows-App\Braille-Printing-Windows-App.csproj", "{4F414EC5-D5BD-4DD3-9EB9-9080E06CCF5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrailleWinAPI", "BrailleWinAPI.csproj", "{B3AC4583-32A2-45DE-A5B2-6B2C9060024E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CF8D1C29-F0DB-41D3-AA4A-215A224469A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF8D1C29-F0DB-41D3-AA4A-215A224469A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF8D1C29-F0DB-41D3-AA4A-215A224469A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF8D1C29-F0DB-41D3-AA4A-215A224469A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{80624AF7-219E-4872-9DFF-E859F4AC80ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{80624AF7-219E-4872-9DFF-E859F4AC80ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{80624AF7-219E-4872-9DFF-E859F4AC80ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{80624AF7-219E-4872-9DFF-E859F4AC80ED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4F414EC5-D5BD-4DD3-9EB9-9080E06CCF5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F414EC5-D5BD-4DD3-9EB9-9080E06CCF5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F414EC5-D5BD-4DD3-9EB9-9080E06CCF5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F414EC5-D5BD-4DD3-9EB9-9080E06CCF5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3AC4583-32A2-45DE-A5B2-6B2C9060024E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3AC4583-32A2-45DE-A5B2-6B2C9060024E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3AC4583-32A2-45DE-A5B2-6B2C9060024E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3AC4583-32A2-45DE-A5B2-6B2C9060024E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
