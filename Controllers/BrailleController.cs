@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using Microsoft.CognitiveServices.Speech;
+
 
 namespace BrailleWinAPI.Controllers
 {
@@ -59,7 +61,7 @@ namespace BrailleWinAPI.Controllers
                 {
                     dotPrint += " ";
                 }
-                for (int j = 0;j <= i;j++)
+                for (int j = 0; j <= i; j++)
                 {
                     dotPrint += ".";
                 }
@@ -122,7 +124,7 @@ namespace BrailleWinAPI.Controllers
                 }
                 dotPrint += "\n";
             }
-            for (int i = rows-1; i >= 1; --i)
+            for (int i = rows - 1; i >= 1; --i)
             {
                 for (int j = 1; j <= rows - i; ++j)
                 {
@@ -137,8 +139,8 @@ namespace BrailleWinAPI.Controllers
             return Ok(dotPrint);
         }
 
-        //To get braille
-        [HttpGet("braille/{text}")]
+        //To print convert in to braille
+        [HttpGet("brailletext/{text}")]
         public IActionResult GetBraille(string text)
         {
             string braille = "";
@@ -158,7 +160,7 @@ namespace BrailleWinAPI.Controllers
                 }
                 else
                 {
-                    braille += " ";
+                    braille += "  ";
                 }
             }
             return Ok(braille);
@@ -182,7 +184,34 @@ namespace BrailleWinAPI.Controllers
         {
             "⠚", "⠁⠃", "⠉⠙", "⠑⠋", "⠍⠝", "⠕⠏", "⠋⠟", "⠛⠗", "⠓⠎", "⠊⠞"
         };
+
+        //To recognize voice
+        [HttpGet("voicerecognize/{voice}")]
+        public async Task<string> Get()
+        {
+            // Configure the subscription key and region for the Speech Service
+            string subscriptionKey = "<your-subscription-key>";
+            string region = "<your-region>";
+
+            // Create a SpeechRecognizer object
+            var config = SpeechConfig.FromSubscription(subscriptionKey, region);
+            using (var recognizer = new SpeechRecognizer(config))
+            {
+                // Start recognition
+                var result = await recognizer.RecognizeOnceAsync();
+
+                // Check the result
+                if (result.Reason == ResultReason.RecognizedSpeech)
+                {
+                    // Return the recognized text
+                    return result.Text;
+                }
+                else
+                {
+                    return "Recognition failed.";
+                }
+            }
+        }
+
     }
-
-
 }
