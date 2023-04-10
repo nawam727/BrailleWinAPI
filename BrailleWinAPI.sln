@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrailleWinAPI", "BrailleWinAPI.csproj", "{B3AC4583-32A2-45DE-A5B2-6B2C9060024E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Braille-Printing-Windows-App", "..\Braille-Printing-Windows-App\Braille-Printing-Windows-App.csproj", "{4E578FC8-60BD-410E-8E21-A94685C5BB85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B3AC4583-32A2-45DE-A5B2-6B2C9060024E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3AC4583-32A2-45DE-A5B2-6B2C9060024E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3AC4583-32A2-45DE-A5B2-6B2C9060024E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E578FC8-60BD-410E-8E21-A94685C5BB85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E578FC8-60BD-410E-8E21-A94685C5BB85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E578FC8-60BD-410E-8E21-A94685C5BB85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E578FC8-60BD-410E-8E21-A94685C5BB85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

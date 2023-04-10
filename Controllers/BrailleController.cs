@@ -160,7 +160,7 @@ namespace BrailleWinAPI.Controllers
                 }
                 else
                 {
-                    braille += " ";
+                    braille += "  ";
                 }
             }
             return Ok(braille);
